@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kmota <kmota@student.42.fr>                +#+  +:+       +#+         #
+#    By: kams <kams@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/16 12:18:10 by kmota             #+#    #+#              #
-#    Updated: 2026/11/16 13:39:02 by kmota            ###   ########.fr        #
+#    Updated: 2026/11/17 21:02:17 by kams             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME: libftprintf.a 
-CC: cc
-CFLAGS: -Wall -Wextra -Werror
-RM: rm -f
-AR: ar rcs
+NAME = libftprintf.a 
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
+AR = ar rcs
 
-SRCS = ft_printf.c ft_putchar.c ft_putstr.c
+SRCS = ft_printf.c ft_putchar.c ft_putstr.c ft_strlen.c
 
 OBJS = ${SRCS:.c=.o}
 

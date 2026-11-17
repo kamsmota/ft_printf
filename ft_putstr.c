@@ -3,23 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 12:43:57 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/16 12:45:09 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/17 21:12:04 by kams             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	size_t	i;
+	size_t	size;
 
 	i = 0;
+	size = ft_strlen(s);
 	while (s[i])
 	{
 		ft_putchar(s[i]);
 		i++;
 	}
+	return (size);
 }
