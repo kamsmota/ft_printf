@@ -6,7 +6,7 @@
 #    By: kams <kams@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/16 12:18:10 by kmota             #+#    #+#              #
-#    Updated: 2026/11/18 20:04:46 by kams             ###   ########.fr        #
+#    Updated: 2026/11/18 20:51:39 by kams             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 AR = ar rcs
 
-SRCS = ft_printf.c ft_putchar.c ft_putstr.c ft_strlen.c
+SRCS = ft_printf.c ft_putchar.c ft_puthex.c ft_putintus.c ft_putnbr.c ft_putptr.c ft_putstr.c
 
 OBJS = ${SRCS:.c=.o}
 
