@@ -6,7 +6,7 @@
 /*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 12:36:16 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/18 23:19:45 by kams             ###   ########.fr       */
+/*   Updated: 2026/11/18 23:22:52 by kams             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_printf(const char *fm, ...)
 	{
 		if (fm[i] == '%' && fm[i + 1])
 		{
-			total += ft_porcent(fm[i + 1], args);
+			total += ft_porcent(fm[i + 1], &args);
 			i += 2;
 		}
 		else
