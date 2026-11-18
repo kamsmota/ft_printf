@@ -6,7 +6,7 @@
 /*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 12:25:25 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/18 20:38:33 by kams             ###   ########.fr       */
+/*   Updated: 2026/11/18 20:44:05 by kams             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdint.h>
 
 int				ft_putchar(char c);
 int				ft_putstr(char *s);
