@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numlen.c                                        :+:      :+:    :+:   */
+/*   ft_putintus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/18 14:54:05 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/18 14:54:58 by kmota            ###   ########.fr       */
+/*   Created: 2026/11/18 14:46:58 by kmota             #+#    #+#             */
+/*   Updated: 2026/11/18 20:34:37 by kams             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_numlen(long n)
+unsigned int	ft_putintus(unsigned long nb)
 {
-	int	len;
+	unsigned long	div;
+	int				count;
 
-	len = 0;
-	if (n <= 0)
+	count = 0;
+	div = 1;
+	while (nb / div > 9)
+		div *= 10;
+	while (div > 0)
 	{
-		len++;
-		n = -n;
+		ft_putchar((nb / div) + '0');
+		count++;
+		nb %= div;
+		div /= 10;
 	}
-	while (n > 0)
-	{
-		len++;
-		n /= 10;
-	}
-	return (len);
+	return (count);
 }

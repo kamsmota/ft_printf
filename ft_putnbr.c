@@ -3,34 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:41:18 by kams              #+#    #+#             */
-/*   Updated: 2026/11/18 15:56:30 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/18 20:34:10 by kams             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long	ft_putnbr(int n)
+int	ft_putnbr(long n)
 {
-	long	div;
-	long	nb;
+	int	count;
 
-	nb = n;
-	if (nb < 0)
+	count = 0;
+	if (n < 0)
 	{
-		write(1, "-", 1);
-		nb = -nb;
+		count += ft_putchar('-');
+		n = -n;
 	}
-	div = 1;
-	while (nb / div > 9)
-		div *= 10;
-	while (div > 0)
-	{
-		ft_putchar((nb / div) + '0');
-		nb %= div;
-		div /= 10;
-	}
-	return (ft_numlen(n));
+	count += ft_putintus(n);
+	return (count);
 }

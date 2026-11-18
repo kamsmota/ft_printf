@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/18 20:35:34 by kams              #+#    #+#             */
+/*   Updated: 2026/11/18 20:37:13 by kams             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include <stdio.h>
 
-int main()
+int	main(void)
 {
-	int ft;
-	int r;
+	int		ft;
+	int		r;
+	long	c;
 
-	ft = ft_printf("ola\n");
-	r = printf("ola\n");
-
-	printf("ft: %d, real: %d\n", ft, r);
-
+	c = 4294967295;
+	ft = ft_printf("%u\n", c);
+	r = printf("%li\n", c);
+	printf("ft: %u\nreal: %u\n", ft, r);
 }

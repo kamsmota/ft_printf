@@ -3,118 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 12:36:16 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/18 15:58:21 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/18 20:32:20 by kams             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int	ft_putchar(char c)
+static int	ft_porcent(const char c, va_list args)
 {
-	write(1, &c, 1);
-	return (1);	
-}
-
-int	ft_putstr(char *s)
-{
-	size_t	i;
-	size_t	size;
-
-	i = 0;
-	size = ft_strlen(s);
-	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-	return (size);
-}
-
-size_t	ft_strlen(char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
+	if (c == 'c')
+		return (ft_putchar(va_arg(args, int)));
+	else if (c == 's')
+		return (ft_putstr(va_arg(args, char *)));
+	else if (c == 'd' || c == 'i')
+		return (ft_putnbr(va_arg(args, int)));
+	else if (c == 'u')
+		return (ft_putintus(va_arg(args, unsigned int)));
+	else if (c == '%')
+		return (ft_putchar('%'));
+	return (0);
 }
 
 int	ft_printf(const char *fm, ...)
 {
 	va_list	args;
 	int		i;
-	char	c;
-	char	*s;
-	int		v;
-	long	u;
-	long	total;
+	int		total;
 
 	i = 0;
 	total = 0;
 	va_start(args, fm);
 	while (fm[i] != '\0')
 	{
-		if (fm[i] == '%' && fm[i + 1] != '\0')
+		if (fm[i] == '%' && fm[i + 1])
 		{
-			if (fm[i + 1] == 'c')
-			{
-				c = (char)va_arg(args, int);
-				total += ft_putchar(c);
-				i++;
-			}
-			else if (fm[i + 1] == 's')
-			{
-				s = va_arg(args, char *);
-				total += ft_putstr(s);
-				i++;
-			}
-			else if (fm[i + 1] == 'd' || fm[i + 1] == 'i')
-			{
-				v = va_arg(args, int);
-				total += ft_putnbr(v);
-				i++;
-			}
-			else if (fm[i + 1] == '%')
-			{
-				total += ft_putchar('%');
-				i++;
-			}
-			else if (fm[i + 1] == 'u')
-			{
-				u = va_arg(args, long);
-				total += ft_putunsig(u);
-				i++;
-			}
-	
-			i++;
+			total += ft_porcent(fm[i + 1], args);
+			i += 2;
 		}
 		else
 		{
-			write(1, &fm[i], 1);
+			total += ft_putchar(fm[i]);
 			i++;
-			total++;
 		}
 	}
 	va_end(args);
 	return (total);
-}
-
-int main()
-{
-	int ft;
-	int r;
-	long c;
-	
-	c = 4294967295;
-	ft = ft_printf("%u\n", c);
-	r = printf("%li\n", c);
-
-	printf("ft: %u\nreal: %u\n", ft, r);
 }
