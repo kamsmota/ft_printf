@@ -6,14 +6,17 @@
 /*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 14:46:10 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/18 20:36:08 by kams             ###   ########.fr       */
+/*   Updated: 2026/11/18 21:51:24 by kams             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+int	ft_putchar(int c)
 {
-	write(1, &c, 1);
-	return (1);
+	int	len;
+
+	len = 0;
+	len += write(1, &c, 1);
+	return (len);
 }

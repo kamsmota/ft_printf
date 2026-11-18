@@ -6,7 +6,7 @@
 /*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 12:25:25 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/18 21:30:55 by kams             ###   ########.fr       */
+/*   Updated: 2026/11/18 22:10:05 by kams             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # include <stdarg.h>
 # include <stdint.h>
 
-int				ft_putptr(void *ptr);
-int				ft_putchar(char c);
-int				ft_putstr(char *s);
-int				ft_putnbr(long n);
-int				ft_puthex(unsigned long n, const char c);
-unsigned int	ft_putintus(unsigned long nb);
-int				ft_printf(const char *fm, ...);
+int	ft_putptr(void *ptr);
+int	ft_putchar(int c);
+int	ft_putstr(char *s);
+int	ft_putnbr(int n);
+int	ft_puthex(unsigned long n, const char c);
+int	ft_putintus(unsigned int nb);
+int	ft_printf(const char *fm, ...);
 
 #endif 

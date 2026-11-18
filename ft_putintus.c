@@ -6,27 +6,27 @@
 /*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 14:46:58 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/18 20:34:37 by kams             ###   ########.fr       */
+/*   Updated: 2026/11/18 22:15:10 by kams             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	ft_putintus(unsigned long nb)
+int	ft_putintus(unsigned int nb)
 {
-	unsigned long	div;
-	int				count;
+	long	div;
+	int		len;
 
-	count = 0;
+	len = 0;
 	div = 1;
 	while (nb / div > 9)
 		div *= 10;
 	while (div > 0)
 	{
 		ft_putchar((nb / div) + '0');
-		count++;
+		len++;
 		nb %= div;
 		div /= 10;
 	}
-	return (count);
+	return (len);
 }

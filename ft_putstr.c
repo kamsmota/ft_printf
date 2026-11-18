@@ -6,7 +6,7 @@
 /*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 12:43:57 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/18 20:29:13 by kams             ###   ########.fr       */
+/*   Updated: 2026/11/18 21:58:09 by kams             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 int	ft_putstr(char *s)
 {
 	size_t	i;
+	int		len;
 
 	i = 0;
 	if (!s)
-		return (0);
+		return (ft_putstr("(null)"));
+	len = 0;
 	while (s[i])
 	{
-		ft_putchar(s[i]);
+		len += ft_putchar(s[i]);
 		i++;
 	}
-	return (i);
+	return (len);
 }
