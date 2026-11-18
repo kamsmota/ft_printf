@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 12:36:16 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/17 22:37:49 by kams             ###   ########.fr       */
+/*   Updated: 2026/11/18 15:58:21 by kmota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	ft_printf(const char *fm, ...)
 	int		i;
 	char	c;
 	char	*s;
+	int		v;
+	long	u;
 	long	total;
 
 	i = 0;
@@ -73,16 +75,24 @@ int	ft_printf(const char *fm, ...)
 				total += ft_putstr(s);
 				i++;
 			}
+			else if (fm[i + 1] == 'd' || fm[i + 1] == 'i')
+			{
+				v = va_arg(args, int);
+				total += ft_putnbr(v);
+				i++;
+			}
 			else if (fm[i + 1] == '%')
 			{
 				total += ft_putchar('%');
 				i++;
 			}
-			else
+			else if (fm[i + 1] == 'u')
 			{
-				write(1, "%", 1);
-				total++;
+				u = va_arg(args, long);
+				total += ft_putunsig(u);
+				i++;
 			}
+	
 			i++;
 		}
 		else
@@ -99,11 +109,12 @@ int	ft_printf(const char *fm, ...)
 int main()
 {
 	int ft;
-	//int r;
+	int r;
+	long c;
+	
+	c = 4294967295;
+	ft = ft_printf("%u\n", c);
+	r = printf("%li\n", c);
 
-	ft = ft_printf("ola %c\n", 'x');
-	//r = printf("ola %");
-
-	printf("ft: %d", ft);
-
+	printf("ft: %u\nreal: %u\n", ft, r);
 }
