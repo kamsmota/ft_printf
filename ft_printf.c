@@ -6,7 +6,7 @@
 /*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 12:36:16 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/18 20:32:20 by kams             ###   ########.fr       */
+/*   Updated: 2026/11/18 21:04:01 by kams             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ static int	ft_porcent(const char c, va_list args)
 		return (ft_putnbr(va_arg(args, int)));
 	else if (c == 'u')
 		return (ft_putintus(va_arg(args, unsigned int)));
+	else if (c == 'x' || c == 'X')
+		return (ft_puthex(va_arg(args, unsigned int), c));
+	else if (c == 'p')
+		return (ft_putptr(va_arg(args, void *)));
 	else if (c == '%')
 		return (ft_putchar('%'));
 	return (0);

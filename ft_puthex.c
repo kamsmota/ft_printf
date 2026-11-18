@@ -6,13 +6,13 @@
 /*   By: kams <kams@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 19:48:05 by kams              #+#    #+#             */
-/*   Updated: 2026/11/18 20:34:59 by kams             ###   ########.fr       */
+/*   Updated: 2026/11/18 21:05:34 by kams             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex(unsigned int n, const char c)
+int	ft_puthex(unsigned long n, const char c)
 {
 	char	*base;
 	int		len;
