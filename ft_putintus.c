@@ -6,7 +6,7 @@
 /*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:55:45 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/19 17:20:15 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/19 17:21:33 by kmota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ int	ft_putintus(unsigned int nb)
 	len = 0;
 	if (nb > 9)
 		len += (ft_putintus(nb / 10));
-	len += ft_putchar(nb + '0');
+	len += ft_putchar((nb % 10) + '0');
+	return (len);
 }
