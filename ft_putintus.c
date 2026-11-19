@@ -6,7 +6,7 @@
 /*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:55:45 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/19 14:55:47 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/19 15:55:09 by kmota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	ft_putintus(unsigned int nb)
 		div *= 10;
 	while (div > 0)
 	{
+		if (ft_putchar((nb / div) + '0') < 0)
+			return (-1);
 		ft_putchar((nb / div) + '0');
 		len++;
 		nb %= div;

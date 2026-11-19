@@ -6,7 +6,7 @@
 /*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:56:13 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/19 15:44:01 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/19 16:37:04 by kmota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,32 @@ int	ft_printf(const char *fm, ...)
 	va_list	args;
 	int		i;
 	int		total;
+	int		ret;
 
 	i = 0;
+	ret = 0;
 	total = 0;
 	va_start(args, fm);
 	while (fm[i] != '\0')
 	{
 		if (fm[i] == '%' && fm[i + 1])
 		{
-			total += ft_porcent(fm[i + 1], &args);
+			ret = ft_porcent(fm[i + 1], &args);
+			if (ret < 0)
+				va_end(args);
+				return (-1);
 			i += 2;
 		}
 		else
 		{
-			total += ft_putchar(fm[i]);
+			ret = ft_putchar(fm[i]);
+			if (ret < 0)
+				va_end(args);
+				return (-1);
 			i++;
 		}
 	}
+	total += ret;
 	va_end(args);
 	return (total);
 }

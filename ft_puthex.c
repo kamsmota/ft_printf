@@ -6,7 +6,7 @@
 /*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:55:40 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/19 15:48:29 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/19 15:58:05 by kmota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,24 @@ int	ft_puthex(unsigned long n, const char c)
 {
 	char	*base;
 	int		len;
-	int		total;
+	int		ret;
 
 	base = 0;
 	len = 0;
+	ret = 0;
 	if (c == 'x')
-	{
 		base = "0123456789abcdef";
-	}
 	else if (c == 'X')
-	{
 		base = "0123456789ABCDEF";
-	}
 	if (n >= 16)
 	{
-		len += ft_puthex((n / 16), c);
+		ret = ft_puthex((n / 16), c);
+		if (ret < 0)
+			return (-1);
+		len = ret;
 	}
-	len += ft_putchar(base[n % 16]);
-	return (len);
+	ret = ft_putchar(base[n % 16]);
+	if (ret < 0)
+		return (-1);
+	return (len + ret);
 }
