@@ -6,7 +6,7 @@
 /*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:56:13 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/19 16:37:04 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/19 16:54:56 by kmota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,23 @@ static int	ft_porcent(const char c, va_list *args)
 	return (0);
 }
 
+static int	process_logic(const char *str, int *i, va_list *ap)
+{
+	int	val;
+
+	if (str[*i] == '%' && str[*i + 1])
+	{
+		val = ft_porcent(str[*i + 1], ap);
+		*i += 2;
+	}
+	else
+	{
+		val = ft_putchar(str[*i]);
+		(*i)++;
+	}
+	return (val);
+}
+
 int	ft_printf(const char *fm, ...)
 {
 	va_list	args;
@@ -44,24 +61,14 @@ int	ft_printf(const char *fm, ...)
 	va_start(args, fm);
 	while (fm[i] != '\0')
 	{
-		if (fm[i] == '%' && fm[i + 1])
+		ret = process_logic(fm, &i, &args);
+		if (ret == -1)
 		{
-			ret = ft_porcent(fm[i + 1], &args);
-			if (ret < 0)
-				va_end(args);
-				return (-1);
-			i += 2;
+			va_end(args);
+			return (-1);
 		}
-		else
-		{
-			ret = ft_putchar(fm[i]);
-			if (ret < 0)
-				va_end(args);
-				return (-1);
-			i++;
-		}
+		total += ret;
 	}
-	total += ret;
 	va_end(args);
 	return (total);
 }
