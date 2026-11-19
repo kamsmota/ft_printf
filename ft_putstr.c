@@ -6,7 +6,7 @@
 /*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:56:00 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/19 15:54:16 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/19 16:59:29 by kmota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,14 @@
 int	ft_putstr(char *s)
 {
 	size_t	i;
-	int		len;
-	int		ret;
 
 	i = 0;
-	ret = 0;
 	if (!s)
 		return (ft_putstr("(null)"));
-	len = 0;
 	while (s[i])
 	{
-		ret = ft_putchar(s[i]);
-		if (ret < 0)
+		if ((ft_putchar(s[i++]) == -1))
 			return (-1);
-		len = ret;
-		i++;
 	}
-	return (len);
+	return (i);
 }

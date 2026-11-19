@@ -6,7 +6,7 @@
 /*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:56:18 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/19 14:56:20 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/19 16:57:28 by kmota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdint.h>
 
 int	ft_putptr(void *ptr);
-int	ft_putchar(int c);
+int	ft_putchar(char c);
 int	ft_putstr(char *s);
 int	ft_putnbr(int n);
 int	ft_puthex(unsigned long n, const char c);

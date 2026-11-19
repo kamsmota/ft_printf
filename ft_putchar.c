@@ -6,16 +6,13 @@
 /*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:55:35 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/19 15:21:22 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/19 16:57:16 by kmota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(int c)
+int	ft_putchar(char c)
 {
-	char	ch;
-
-	ch = c;
-	return (write(1, &ch, 1));
+	return (write(1, &c, 1));
 }
