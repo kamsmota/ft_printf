@@ -6,7 +6,7 @@
 /*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:55:40 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/19 14:55:43 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/19 15:48:29 by kmota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	ft_puthex(unsigned long n, const char c)
 {
 	char	*base;
 	int		len;
+	int		total;
 
 	base = 0;
 	len = 0;
