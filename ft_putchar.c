@@ -6,7 +6,7 @@
 /*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:55:35 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/19 14:57:26 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/19 15:21:22 by kmota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int	ft_putchar(int c)
 {
-	char	l;
+	char	ch;
 
-	l = (char)c;
-	write(1, &l, 1);
-	return (1);
+	ch = c;
+	return (write(1, &ch, 1));
 }
