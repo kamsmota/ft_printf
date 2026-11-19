@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kams <kams@student.42.fr>                  +#+  +:+       +#+         #
+#    By: kmota <kmota@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/11/16 12:18:10 by kmota             #+#    #+#              #
-#    Updated: 2026/11/18 20:51:39 by kams             ###   ########.fr        #
+#    Created: 2026/11/19 14:56:05 by kmota             #+#    #+#              #
+#    Updated: 2026/11/19 14:58:02 by kmota            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a 
+NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
