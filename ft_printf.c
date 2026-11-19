@@ -6,7 +6,7 @@
 /*   By: kmota <kmota@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:56:13 by kmota             #+#    #+#             */
-/*   Updated: 2026/11/19 15:35:53 by kmota            ###   ########.fr       */
+/*   Updated: 2026/11/19 15:36:38 by kmota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ int	ft_printf(const char *fm, ...)
 	va_list	args;
 	int		i;
 	int		total;
-	int		len;
 
 	i = 0;
-	len = 0;
 	total = 0;
 	va_start(args, fm);
 	while (fm[i] != '\0')
